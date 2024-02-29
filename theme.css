@@ -1,18 +1,150 @@
+/* latin */
+@font-face {
+	font-family: 'JetBrains Mono';
+	font-style: light;
+	font-weight: 300;
+	font-display: swap;
+	src: url(https://fonts.googleapis.com/css2?family=JetBrains+Mono,wght@300&display=swap) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
+:root
+{
+	--dark0:   #11151a;
+	--dark1:   #141a25;
+	--dark1-2: #1d2535;
+	--dark2:   hsl(220, 24%, 32%);
+	--dark3:   hsl(221, 22%, 55%);
+
+	--light0: #d8dee9;
+	--light1: #e5e9f0;
+	--light2: #eceff4;
+	--light3: #ffffff;
+
+	--frost0: #8fbcbb;
+	--frost1: #88c0d0;
+	--frost2: #81a1c1;
+	--frost3: #5e81ac;
+
+	--bloddish48: hsl(203, 27%, 48%);
+	--bloddish64: hsl(204, 24%, 64%);
+
+	--red53:  hsl(355, 35%, 53%);
+	--red:    hsl(352, 56%, 62%);
+	--orange: #d08770;
+	--yellow54: hsl(30, 55%, 54%);
+	--yellow59: hsl(24, 33%, 59%);
+	--yellow:   hsl(27, 49%, 68%);
+	--yellow75: hsl(19, 38%, 75%);
+	--green:  #a3be8c;
+	--groddish: hsl(107, 39%, 43%);
+	--purple: #b48ead;
+
+	--font-default: 'Inter', 'Segoe UI Emoji', sans-serif;
+	--font-title: 'Jomhuria', serif;
+	--font-headings: var(--font-default);
+	--font-monospace: 'JetBrains Mono', monospace;
+}
+
+/* Obsidian theme variables (imported from default theme and modified) */
 body {
 	--radius-s: 0px;
 	--radius-m: 0px;
 	--radius-l: 0px;
 	--input-radius: 0px;
-	--tab-radius-active: 0px;
+	--tab-radius-active: 6px;
 	--checkbox-radius: 0px;
-	--toggle-radius: 0px;
-	--toggle-thumb-radius: 0px;
-	--slider-thumb-radius: 0px;
+	--toggle-radius: 18px;
+	--toggle-thumb-radius: 18px;
+	--slider-thumb-radius: 10px;
+	--h1-size: 2.5em;
+    --h2-size: 2.07em;
+    --h3-size: 1.73em;
+    --h4-size: 1.44em;
+    --h5-size: 1.23em;
+    --h6-size: 1.1em;
+}	
+
+
+.theme-dark {
+	color-scheme: dark;
+    --background-primary:         var(--dark0);
+    --background-primary-alt:     var(--dark0);
+    --background-secondary:       var(--dark1);
+    --background-secondary-alt:   var(--dark2);
+	--ribbon-background:		  var(--dark1-2);
+    --text-normal:                var(--light2);
+    --text-faint:                 var(--light0);
+    --text-muted:                 var(--light1);
+    --text-title-h1:              var(--red);
+    --text-title-h2:              var(--orange);
+    --text-title-h3:              var(--yellow);
+    --text-title-h4:              var(--green);
+    --text-title-h5:              var(--bloddish64);
+    --text-title-h6:              var(--purple);
+    --text-link:                  var(--frost0);
+    --text-a:                     var(--yellow);
+    --text-a-hover:               var(--yellow);
+    --text-mark:                  var(--red);
+    --pre-code:                   var(--dark1);
+    --text-highlight-bg:          var(--dark3);
+    --interactive-accent:         var(--yellow59);
+    --interactive-accent-hover:   var(--red);
+    --interactive-hover:          var(--dark0);
+    --interactive-before:         var(--dark3);
+    --background-modifier-border: var(--dark2);
+    --text-accent:                var(--orange);
+    --interactive-accent-rgb:     var(--orange);
+    --inline-code:                var(--frost1);
+    --code-block:                 var(--frost1);
+    --vim-cursor:                 var(--orange);
+    --text-selection:             var(--red53); /* Annoying - affects both Edit and Preview, but Preview has translucency */
+    --opacity-translucency:       0.9;
 }
 
 .workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
 	display: none;
 }
+
+.cm-header-1.cm-header-1,
+.markdown-preview-section.markdown-preview-section h1 {
+    font-family: var(--font-title);
+    font-weight: 400;
+    text-shadow: 1px 1px rgba(0,0,0,0.05),
+    2px 2px rgba(0,0,0,0.05),
+    3px 3px rgba(0,0,0,0.05),
+    4px 4px rgba(0,0,0,0.05),
+    5px 5px rgba(0,0,0,0.05),
+    6px 6px rgba(0,0,0,0.05),
+    7px 7px rgba(0,0,0,0.05),
+    8px 8px rgba(0,0,0,0.05),
+    9px 9px rgba(0,0,0,0.05)
+}
+
+.HyperMD-codeblock-bg
+{
+    background-color: var(--pre-code) !important;
+}
+
+.HyperMD-codeblock
+{
+    line-height: 1.4em !important;
+    color: var(--code-block) !important;
+}
+
+.HyperMD-codeblock-begin
+{
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+}
+
+.HyperMD-codeblock-end
+{
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+}
+
+
 
 svg * {
 	stroke-linecap: square;
